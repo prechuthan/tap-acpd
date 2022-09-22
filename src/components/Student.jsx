@@ -3,6 +3,7 @@ export function Student({ entries }) {
 
   const courseIds = entries.map((entry) => entry.course_id).join(", ");
 
+  //   GPA calculated by getting an average grade
   const calculatedGpa =
     entries
       .map((entry) => entry.course_grade)
