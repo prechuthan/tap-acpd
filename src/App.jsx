@@ -1,5 +1,5 @@
-import './App.css';
-import GradeTracker from './components/GradeTracker';
+import "./App.css";
+import GradeTracker from "./components/GradeTracker";
 
 function App() {
   return (
@@ -7,7 +7,6 @@ function App() {
       <div className="container max-w-7xl mx-auto my-8">
         <h1 className="text-center text-3xl font-bold">Students</h1>
       </div>
-      
       <GradeTracker />
     </div>
   );
