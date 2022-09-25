@@ -10,11 +10,14 @@ export function Student({ entries }) {
       .reduce((prev, current) => prev + current, 0) / entries.length;
 
   return (
-    <div>
-      <p>Student</p>
-      <h1>{studentId}</h1>
-      <p>{courseIds}</p>
-      <p>GPA {calculatedGpa.toFixed(1)}</p>
+    <div className="w-48 h-48 mx-auto p-4 text-xs rounded-lg drop-shadow-md bg-white">
+      <p>student</p>
+      <h1 className="text-4xl font-medium">{studentId}</h1>
+      <p className="h-12">{courseIds}</p>
+      <p className="text-right mt-4">
+        GPA{" "}
+        <span className="text-4xl font-medium">{calculatedGpa.toFixed(1)}</span>
+      </p>
     </div>
   );
 }

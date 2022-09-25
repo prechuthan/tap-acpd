@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { Student } from "./Student";
 
@@ -44,7 +43,11 @@ function GradeTracker() {
     return <Student entries={studentEntries} key={studentId} />;
   });
 
-  return <div className="GradeTracker">{studentList}</div>;
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 place-content-evenly">
+      {studentList}
+    </div>
+  );
 }
 
 export default GradeTracker;
