@@ -2,13 +2,14 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Student } from "./Student";
 import { Loading } from "./Loading";
+import { Error } from "./Error";
 
 const API_URL =
-  "https://quanmgx57hjiqicdxgo2vzebqq0tghim.lambda-url.ap-southeast-1.on.aws/";
+  "https://quanmgx57hjiqicdxgo2vzebqq0tghim.lambda-url.ap-southeast-1.on.awss/";
 
 function GradeTracker() {
   // Setup useQuery with API fetch timeout of 3secs + max. 2 retries
-  const { isLoading, error, data } = useQuery(
+  const { isLoading, error, data, reload } = useQuery(
     ["studentGrades"],
     () => axios(API_URL, { timeout: 3000 }),
     {
@@ -19,7 +20,7 @@ function GradeTracker() {
   // Handle error response from API
   if (error) {
     console.log(`error: {error}`);
-    return <span>ERROR</span>;
+    return <Error />;
   }
 
   // Handing loading while API is being fetched
