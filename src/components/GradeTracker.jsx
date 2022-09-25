@@ -5,11 +5,11 @@ import { Loading } from "./Loading";
 import { Error } from "./Error";
 
 const API_URL =
-  "https://quanmgx57hjiqicdxgo2vzebqq0tghim.lambda-url.ap-southeast-1.on.awss/";
+  "https://quanmgx57hjiqicdxgo2vzebqq0tghim.lambda-url.ap-southeast-1.on.aws/";
 
 function GradeTracker() {
   // Setup useQuery with API fetch timeout of 3secs + max. 2 retries
-  const { isLoading, error, data, reload } = useQuery(
+  const { isLoading, error, data, refetch } = useQuery(
     ["studentGrades"],
     () => axios(API_URL, { timeout: 3000 }),
     {
@@ -19,8 +19,8 @@ function GradeTracker() {
 
   // Handle error response from API
   if (error) {
-    console.log(`error: {error}`);
-    return <Error />;
+    console.log(error);
+    return <Error error={error} refetch={refetch} />;
   }
 
   // Handing loading while API is being fetched

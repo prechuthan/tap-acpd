@@ -5,7 +5,7 @@ import {
   faRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export function Error({ error, reload }) {
+export function Error({ error, refetch }) {
   return (
     <div className="text-center">
       <span className="fa-layers mt-8">
@@ -20,7 +20,7 @@ export function Error({ error, reload }) {
 
       <button
         className="text-sm rounded-lg drop-shadow-md bg-white mt-5 px-8 py-1"
-        onClick={reload}
+        onClick={refetch}
       >
         <FontAwesomeIcon icon={faRotateRight} className="text-black" />
         <span className="ml-2">Try again</span>
