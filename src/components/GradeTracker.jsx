@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Student } from "./Student";
+import { Loading } from "./Loading";
 
 const API_URL =
   "https://quanmgx57hjiqicdxgo2vzebqq0tghim.lambda-url.ap-southeast-1.on.aws/";
@@ -23,7 +24,7 @@ function GradeTracker() {
 
   // Handing loading while API is being fetched
   if (isLoading) {
-    return <span>LOADING</span>;
+    return <Loading />;
   }
 
   // Clean API data by grouping entries of the same student together
